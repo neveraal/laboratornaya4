@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
-
+#1
 class Car:
     car_count = 0
 
@@ -70,6 +70,11 @@ def delete_car():
         for i in range(car_index, len(cars)):
             cars[i].car_number -= 1
         update_car_listbox()
+
+def delete_all_cars():
+    global cars
+    cars=[]
+    update_car_listbox()
 
 def select_car(event):
     index = car_listbox.curselection()[0]
@@ -183,6 +188,9 @@ add_button.pack()
 
 delete_button = tk.Button(app, text="Удалить машину", command=delete_car)
 delete_button.pack()
+
+delete_all_button = tk.Button(app, text = "Удалить все машины", command = delete_all_cars)
+delete_all_button.pack()
 
 car_listbox = tk.Listbox(app)
 car_listbox.pack()
