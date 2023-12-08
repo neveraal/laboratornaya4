@@ -72,6 +72,11 @@ def delete_car():
             cars[i].car_number -= 1
         update_car_listbox()
 
+def delete_all_cars():
+    global cars
+    cars = []
+    update_car_listbox()
+
 def select_car(event):
     index = car_listbox.curselection()[0]
     car_index = int(index)
@@ -184,6 +189,9 @@ add_button.pack()
 
 delete_button = tk.Button(app, text="Удалить машину", command=delete_car)
 delete_button.pack()
+
+delete_all_button = tk.Button(app, text = "Удалить все машины", command = delete_all_cars)
+delete_all_button.pack()
 
 car_listbox = tk.Listbox(app)
 car_listbox.pack()
